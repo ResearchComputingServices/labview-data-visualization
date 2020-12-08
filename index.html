@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib/d3.js"></script>
+    <script src="lib/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <title>Data Visualization</title>
+</head>
+
+<body style="position: relative;">
+    <img src="image/CARLETON.png" alt="Carleton Logo" width="250" height="89">
+    <img src="image/EERL.png" alt="EERL Logo" width="250" height="84">
+    <h2>Data Display</h2>
+    <table>
+      <tr>
+          <td>Velocity 1: </td>
+          <td><input type=text id='v1' value='0' style="width: 50px;">m/s</td> 
+      </tr>
+      <tr>
+          <td>Velocity 2: </td>
+          <td><input type=text id='v2' value='0' style="width: 50px;">m/s</td>
+      </tr>
+      <tr>
+          <td>Concentration 1: </td>
+          <td><input type=text id='c1' value='0' style="width: 50px;">%</td>
+      </tr>
+      <tr>
+          <td>Concentration 2: </td>
+          <td><input type=text id='c2' value='0' style="width: 50px;">%</td>
+      </tr>
+      <tr>
+          <td>Flux 1: </td>
+          <td><input type=text id='f1' value='0' style="width: 50px;">kg/h</td>
+      </tr>
+      <tr>
+          <td>Flux 2: </td>
+          <td><input type=text id='f2' value='0' style="width: 50px;">kg/h</td>
+      </tr>
+  </table>
+  <h2>Data Visualization</h2>
+
+    <section class="timeline" style="position: relative;">
+        <button id="start" class ="btn btn-danger">   
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+              </svg>
+            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pause" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+              </svg>
+        </button>
+
+        <span style="display:inline-block; width: 10px;"></span><br>
+        <label for="">Zoom X:</label>
+        <button id="xPlus" class="btn btn-outline-success btn-lg">+</button>
+        <span style="display:inline-block; width: 5px;"></span>
+        <button id="xReduce" class="btn btn-outline-danger btn-lg">-</button>
+        <span style="display:inline-block; width: 15px;"></span><br>
+        <span>Display</span><input type="text" id="inputText1" style="width: 70px;"><span>second(s) plot</span>
+        <button id="apply1" class="btn btn-info">Apply</button>
+        <span style="display:inline-block; width: 15px;"></span><br>
+        <label for="">Zoom Y:</label>
+        <button id="yPlus" class="btn btn-outline-success btn-lg">+</button>
+        <span style="display:inline-block; width: 5px;"></span>
+        <button id="yReduce" class="btn btn-outline-danger btn-lg">-</button>
+        <span style="display:inline-block; width: 15px;"></span><br>
+        <label for="">ymin</label>
+        <input type="number" class="ymin" style="width: 50px;">
+        <label for="">ymax</label>
+        <input type="number" class="ymax" style="width: 50px;">
+        <button id="yscale1" class="btn btn-info">Apply</button>
+
+        <div id="timeline"> </div>
+    </section>
+    </section>
+
+    <section class="timeline1" style="position: relative;">
+        <!-- <button id="start">Continue</button>
+        <button id="stop">Pause</button>
+        <label for="">ZoomX:</label>
+        <button id="xPlus">+</button>
+        <button id="xReduce">-</button> -->
+        <label for="">ZoomY:</label>
+        <button id="yPlus" class="btn btn-outline-success btn-lg">+</button>
+        <span style="display:inline-block; width: 5px;"></span>
+        <button id="yReduce" class="btn btn-outline-danger btn-lg">-</button>
+        <span style="display:inline-block; width: 15px;"></span><br>
+        <label for="">ymin</label>
+        <input type="number" class="ymin" style="width: 50px;">
+        <label for="">ymax</label>
+        <input type="number" class="ymax" style="width: 50px;">
+        <button id="yscale2" class="btn btn-info">Apply</button>
+
+        <div id="timeline1"> </div>
+    </section>
+    </section>
+    
+    <section class="timeline2">
+        <!-- <button id="start">Continue</button>
+        <button id="stop">Pause</button>
+        <label for="">ZoomX:</label>
+        <button id="xPlus">+</button>
+        <button id="xReduce">-</button> -->
+        <label for="">ZoomY:</label>
+        <button id="yPlus" class="btn btn-outline-success btn-lg">+</button>
+        <span style="display:inline-block; width: 5px;"></span>
+        <button id="yReduce" class="btn btn-outline-danger btn-lg">-</button>
+        <span style="display:inline-block; width: 15px;"></span><br>
+        <label for="">ymin</label>
+        <input type="number" class="ymin" style="width: 50px;">
+        <label for="">ymax</label>
+        <input type="number" class="ymax" style="width: 50px;">
+        <button id="yscale3" class="btn btn-info">Apply</button>
+        <div id="timeline2"> </div>
+
+    </section>
+    <script type="module" src="/src/index.js">
+
+    </script>
+</body>
+
+</html>
